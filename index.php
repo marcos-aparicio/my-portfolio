@@ -1,8 +1,27 @@
+<?php 
 
+//connecting to github api
+$github_url = "https://api.github.com/users/marcos-aparicio/repos";
+$req = curl_init($github_url);
+curl_setopt($req, CURLOPT_URL,$github_url);
+curl_setopt($req, CURLOPT_RETURNTRANSFER,true);
+curl_setopt($req, CURLOPT_RETURNTRANSFER,true);
+
+$headers = array(
+    "User-Agent: marcos-aparicio",
+    "Accept: application/vnd.github+json",
+);
+curl_setopt($req, CURLOPT_HTTPHEADER,$headers);
+
+
+$response = curl_exec($req);
+$my_projects = json_decode($response,true);
+
+?>
 <!doctype html>
 <html lang="en">    
 <head>
-    <title>Marcos Aparicio</title>
+    <title>Marcos Aparicio's Portfolio</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
@@ -71,22 +90,51 @@
             <div class="languages col-md-6 col-12 flex-md-column-reverse flex-column d-flex justify-content-around">
                 <article class="languages__info bubble-cont text-center">
                     <img src="./images/bubble2.png" alt="Bubble for Decoration" class = "bubble d-sm-block d-md-block d-lg-block d-xl-block d-xxl-block">
-                    <p class="title text-center">Skills</p>
+                    <p class="title text-center" id = "languages">Skills</p>
                 </article>
                 <div class="languages__skills ">
-                    <i class="fa-brands fa-square-js" style="color:#f7e018"></i>
-                    <i class="fa-brands fa-html5" style="color:#ff5722"></i> 
-                    <i class="fa-brands fa-css3-alt" style="color:#214ce5"></i>
-                    <i class="fa-solid fa-database" style="color:#feb300"></i>
-                    <i class="fa-brands fa-php" style="color:#5B54F2"></i>
-                    <i class="fa-brands fa-git-alt" style="color:#E44C30"></i>
-                    <i class="fa-brands fa-bootstrap" style="color:#7A09F7"></i>
+                    <a data-bs-toggle="tooltip" data-bs-title="Javascript, 1st language I learned" ><i class="fa-brands fa-square-js" style="color:#f7e018"></i></a>
+                    <a data-bs-toggle="tooltip" data-bs-title="HTML, the structure for websites"><i class="fa-brands fa-html5" style="color:#ff5722"></i></a> 
+                    <a data-bs-toggle="tooltip" data-bs-title="CSS, the styles for websites"><i class="fa-brands fa-css3-alt" style="color:#214ce5"></i></a>
+                    <a data-bs-toggle="tooltip" data-bs-title="Intermediate usage of SQL"><i class="fa-solid fa-database" style="color:#feb300"></i></a>
+                    <a data-bs-toggle="tooltip" data-bs-title="Intermediate usage of PHP"><i class="fa-brands fa-php" style="color:#5B54F2"></i></a>
+                    <a data-bs-toggle="tooltip" data-bs-title="Git, version-control software"><i class="fa-brands fa-git-alt" style="color:#E44C30"></i></a>
+                    <a data-bs-toggle="tooltip" data-bs-title="Bootstrap, CSS Framework"><i class="fa-brands fa-bootstrap" style="color:#7A09F7"></i></a>
                 </div>
             </div>
         </section>
         <section class="projects container" id = "projects">
-            <p class="title text-left">Some of my Projects</p>
-            <div id="carouselProjects" class="carousel slide mx-auto" data-bs-ride="carousel"></div>
+            <p class="title text-center">Some of my Projects</p>
+            <div id="carouselProjects" class="carousel carousel-fade slide mx-auto" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    <!--first element will be active !-->
+                    <button type="button" data-bs-target="#carouselProjects" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 0"></button>
+                <?php for($i = 1; $i < count($my_projects);$i++): ?>
+                    <button type="button" data-bs-target="#carouselProjects" data-bs-slide-to="<?=$i?>" aria-current="true" aria-label="Slide <?=$i+1?>"></button>
+                <?php endfor ?>
+                </div>
+                <div class="carousel-inner">
+                <?php 
+                    $active = 1; 
+                    foreach($my_projects as $project): ?>
+                    <div class="carousel-item <?php if(1 == $active++) print('active'); ?>">
+                        <h1><?= $project['description'] ?></h1>
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5><?= $project['name'] ?></h5>
+                            <p><?= $project['description'] ?></p>
+                        </div>
+                    </div>
+                <?php endforeach ?>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselProjects" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselProjects" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
         </section>
         
     </main>
@@ -98,6 +146,7 @@
         </div>
     </footer>
     <script src="./script.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 </body>
 
 </html>
