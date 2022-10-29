@@ -6,5 +6,7 @@ CREATE TABLE github_projects(
     name VARCHAR(255),
     description VARCHAR(255),
     language VARCHAR(255),
-    url VARCHAR(255)
+    repo_url VARCHAR(255),
+    deploy_url VARCHAR(255)
+
 );

@@ -1,4 +1,5 @@
 <?php 
+require("db.php");
 //connecting to github api
 $github_url = "https://api.github.com/users/marcos-aparicio/repos";
 $req = curl_init($github_url);
@@ -13,17 +14,18 @@ $headers = array(
 );
 curl_setopt($req, CURLOPT_HTTPHEADER,$headers);
 
-
+$cleaning = $conn->prepare("DELETE * FROM github_projects");
 $response = curl_exec($req);
 $my_projects = json_decode($response,true);
 var_dump($my_projects);
 foreach($my_projects as $project){
-    $stmt = $conn->prepare("INSERT INTO github_projects(name,description,language,url) VALUES(:name,:description,:language,:url)");
+    $stmt = $conn->prepare("INSERT INTO github_projects(name,description,language,repo_url,deploy_url) VALUES(:name,:description,:language,:repo_url,:deploy_url)");
     $stmt->execute([
         ":name"=>$project['name'],
         ":description"=>$project['description'],
         ":language"=>$project['language'],
-        ":url"=>$project['html_url'],
+        ":repo_url"=>$project['html_url'],
+        ":deploy_url"=>$project['homepage'],
     ]);
 
 }
