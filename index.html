@@ -17,12 +17,12 @@
 </head>
 
 <body>
-    <header class = "container-fluid ">
+    <header class = "container-fluid " id = "header">
         <nav class="navbar navbar-expand-lg navbar-dark justify-content-between px-5 py-3">
             <span class="col-2 logo">&lt;/&gt;</span>
             <div class = "d-flex flex-column">
                 <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+                    <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse " id="navbarTogglerDemo03">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -37,7 +37,7 @@
                         </li>
                     </ul>
                 </div>
-            </div>
+             </div>
         </nav>
         <div class="wave1">
             <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" fill = "#3C78EE">
@@ -47,7 +47,7 @@
     </header>
     
     <main>
-        <section id = "home" class="home container ">
+        <section id = "home" class="home container d-flex flex-column justify-content-center align-items-center">
             <article class="text text-center">
                 <h1 class="title">Marcos Aparicio</h1>
                 <h2 class="sub-title">Web Developer</h2>
@@ -55,12 +55,16 @@
             <figure class = "d-flex justify-content-center">
                 <img src="./images/devLogo.png" alt="Developer Logo" class ="rounded logo-image">
             </figure>
+            <div class="social-media d-flex justify-content-center">
+                <a href="https://github.com/marcos-aparicio"><i class="fa-brands fa-square-github social-media__icon"></i></a>
+                <a href="https://www.linkedin.com/in/marcos-aparicio-74412822b/"><i class="fa-brands fa-linkedin social-media__icon"></i></a>
+            </div>
         </section>
         <section id="about" class = "about container-fluid row ">
             <article class="about-me col-md-6 col-12">
                 <div class="bubble-cont">
                     <p class="title text-center">About me</p>
-                    <img src="./images//bubble1.png" alt="Bubble for Decoration" class = "bubble">
+                    <img src="./images/bubble1.png" alt="Bubble for Decoration" class = "bubble">
                 </div>
                 <p class ="about-me__info">I'm passionate about coding. Always looking for the opportunity to learn something more whether is a new programming language, framework or anything that relates to computer science! Been exploring tiling window managers and Vim recently. I love those tools!</p>
             </article>
@@ -69,62 +73,31 @@
                     <img src="./images/bubble2.png" alt="Bubble for Decoration" class = "bubble d-sm-block d-md-block d-lg-block d-xl-block d-xxl-block">
                     <p class="title text-center">Skills</p>
                 </article>
-                <div class="languages__skills">
-                    <i class="fa-brands fa-square-js"></i>
-                    <i class="fa-brands fa-html5"></i> 
-                    <i class="fa-brands fa-css3-alt"></i>
-                    <i class="fa-solid fa-database"></i>
-                    <i class="fa-brands fa-php"></i>
-                    <i class="fa-brands fa-sass"></i>
-                    <i class="fa-brands fa-git-alt"></i>
-                    <i class="fa-brands fa-bootstrap"></i>
+                <div class="languages__skills ">
+                    <i class="fa-brands fa-square-js" style="color:#f7e018"></i>
+                    <i class="fa-brands fa-html5" style="color:#ff5722"></i> 
+                    <i class="fa-brands fa-css3-alt" style="color:#214ce5"></i>
+                    <i class="fa-solid fa-database" style="color:#feb300"></i>
+                    <i class="fa-brands fa-php" style="color:#5B54F2"></i>
+                    <i class="fa-brands fa-git-alt" style="color:#E44C30"></i>
+                    <i class="fa-brands fa-bootstrap" style="color:#7A09F7"></i>
                 </div>
             </div>
         </section>
         <section class="projects container" id = "projects">
             <p class="title text-left">Some of my Projects</p>
-            <div id="carouselProjects" class="carousel slide mx-auto" data-bs-ride="carousel">
-                <div class="carousel-indicators">
-                  <button type="button" data-bs-target="#carouselProjects" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Really Simple Tic Tac Toe"></button>
-                  <button type="button" data-bs-target="#carouselProjects" data-bs-slide-to="1" aria-label="Client Side Web Programming 
-                  Course Index"></button>
-                  <button type="button" data-bs-target="#carouselProjects" data-bs-slide-to="2" aria-label="Page about my interests"></button>
-                </div>
-                <div class="carousel-inner d-flex">
-                  <div class="carousel-item active">
-                    <img src="./images/tictactoeResponsive.png" class="d-block d-md-none w-100 rounded" alt="Tic Tac Toe">
-                    <img src="./images/tictactoe.png" class="d-md-block d-none w-100 rounded" alt="Tic Tac Toe">
-                  </div>
-                  <div class="carousel-item">
-                    <img src="./images/courseIndexResponsive.jpeg" class="d-block d-md-none w-100 rounded" alt="Client Side Web Programming Course Index">
-                    <img src="./images/courseIndex.png" class="d-md-block d-none w-100 rounded" alt="Client Side Web Programming Course Index">
-                  </div>
-                  <div class="carousel-item">
-                    <img src="./images/interestPageResponsive.jpeg" class="d-block d-md-none w-100 rounded" alt="Page about my hobbies">
-                    <img src="./images/interestPage.png" class="d-md-block d-none w-100 rounded" alt="Page about my hobbies">
-                  </div>
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselProjects" data-bs-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselProjects" data-bs-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Next</span>
-                </button>
-              </div>
-              
+            <div id="carouselProjects" class="carousel slide mx-auto" data-bs-ride="carousel"></div>
         </section>
         
     </main>
-    <footer>
+    <footer id = "footer">
         <div class="wave2">
             <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" >
                 <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
             </svg>
         </div>
     </footer>
-    <script src="./script.js"></script>
+    <script src="./script.js" defer></script>
 </body>
 
 </html>

@@ -1,21 +1,18 @@
-const button = document.getElementById("button");
-const responsiveNav = document.querySelectorAll("#responsiveNav");
-const responsiveNavElements = document.querySelectorAll(".responsiveNavElement");
+const header = document.querySelector("#header");
+const footer = document.querySelector("#footer");
+const firstSection = document.getElementById("home");
+const lastSection = document.getElementById("projects");
+
+const resizeWebSections = ()=>{
+
+    //first section of the page
+    let firstSectionHeight = window.innerHeight - header.clientHeight;
+    firstSection.style.height = `${firstSectionHeight}px`
+
+    let lastSectionHeight = window.innerHeight - footer.clientHeight;
+    lastSection.style.height =  `${lastSectionHeight}px`;
+};
 
 
-button.addEventListener("click",()=>{
-    responsiveNav[0].style.position="relative"
-    responsiveNav[0].style.transform = "translateY(0px)";
-
-})
-console.log(responsiveNavElements)
-
-
-responsiveNavElements[0].addEventListener("click",hide);
-responsiveNavElements[1].addEventListener("click",hide);
-responsiveNavElements[2].addEventListener("click",hide);
-
-function hide(){
-    responsiveNav[0].style.position="absolute";
-    responsiveNav[0].style.transform = "translateY(-500px)";
-}
+window.onload = resizeWebSections;
+window.onresize = resizeWebSections;
