@@ -29,6 +29,9 @@ header{
     margin-right:1em;
     margin-left:1em;
 }
+.nav-link{
+    font-family: 'Fredoka',sans-serif;
+}
 .navbar-toggler-icon{
     height:3em !important;
     width:3em !important;
@@ -75,10 +78,12 @@ header{
 }
 /* Adjustmentes to the title of the first part and the image */
 .home article .title{
-    font-size:5.5rem;
+    font-size:6.5rem;
 }
 .home article .sub-title{
     font-size:4.5rem;
+    font-family:'Fredoka',sans-serif;
+    font-weight: 400;
 }
 .home .logo-image{
     height:250px;
@@ -91,7 +96,8 @@ header{
     margin:40px 20px;
 }
 a:hover>.social-media__icon{
-   color:rgb(60, 80, 238) 
+    transform: scale(1.2);
+    color:rgb(60, 80, 238) 
 }
 /* About Me Section */
 .about{
@@ -102,21 +108,21 @@ a:hover>.social-media__icon{
 }
 /* Configuring titles */
 .about .title{
-    font-size:5.2rem;
+    font-size:5.6rem;
     color:white;
     text-transform:uppercase;
     z-index:12;
 
 }
 /* To separate the about me title from the paragraph */
-.about p{
+.about p:not(.title){
     margin-top:50px;
+    font-family:'Fredoka',sans-serif;
 }
 /* Styles for the paragraph of about me */
 .about .about-me__info{
     padding:0 45px;
-    font-size:2.9rem;
-    font-weight: 300;
+    font-size:2.3rem;
     margin-top:150px;
 }
 
@@ -157,9 +163,40 @@ a:hover>.social-media__icon{
    font-size:12rem; 
 }
 
-.carousel-caption{
-    color:black !important;
+.carousel-item__project{
+
+    width:65%;
+    height:50rem;
+
+    margin:30px auto;
+    margin-bottom: 10px;
+    padding:20px;
+
+    overflow:visible;
+    box-shadow: 3px 4px 15px -6px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 3px 4px 15px -6px rgba(0,0,0,0.75);
+    -moz-box-shadow: 3px 4px 15px -6px rgba(0,0,0,0.75);
+    border-radius:15px;
 }
+
+.carousel-item__project h3{
+    font-size:4.3rem;
+}
+
+.carousel-item__project p{
+    font-size:2.4rem;
+    font-family: 'Fredoka', sans-serif;
+}
+.carousel-item__button{
+    font-size:2.05rem;
+    color:white;
+    background-color:#3C78EE;
+    padding:5px 10px;
+    margin:15px 0;
+    border-radius: 5px;
+}  
+
+
 /* Projects Section */
 .projects{
     padding:0 50px;

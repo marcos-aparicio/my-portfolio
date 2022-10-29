@@ -1,21 +1,8 @@
 <?php 
 
-//connecting to github api
-$github_url = "https://api.github.com/users/marcos-aparicio/repos";
-$req = curl_init($github_url);
-curl_setopt($req, CURLOPT_URL,$github_url);
-curl_setopt($req, CURLOPT_RETURNTRANSFER,true);
-curl_setopt($req, CURLOPT_RETURNTRANSFER,true);
+require("db.php");
 
-$headers = array(
-    "User-Agent: marcos-aparicio",
-    "Accept: application/vnd.github+json",
-);
-curl_setopt($req, CURLOPT_HTTPHEADER,$headers);
-
-
-$response = curl_exec($req);
-$my_projects = json_decode($response,true);
+$my_projects = $conn->query('SELECT * FROM github_projects')->fetchAll();
 
 ?>
 <!doctype html>
@@ -28,7 +15,10 @@ $my_projects = json_decode($response,true);
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Ubuntu+Condensed&display=swap" rel="stylesheet">
-    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
     <script src="https://kit.fontawesome.com/92b62ee1cc.js" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
@@ -85,7 +75,7 @@ $my_projects = json_decode($response,true);
                     <p class="title text-center">About me</p>
                     <img src="./images/bubble1.png" alt="Bubble for Decoration" class = "bubble">
                 </div>
-                <p class ="about-me__info">I'm passionate about coding. Always looking for the opportunity to learn something more whether is a new programming language, framework or anything that relates to computer science! Been exploring tiling window managers and Vim recently. I love those tools!</p>
+                <p class ="about-me__info">I'm passionate about coding. Always looking for the opportunity to learn something more whether is a new programming language, framework or anything that relates to computer science! Been exploring tiling window managers and Vim recently.</p>
             </article>
             <div class="languages col-md-6 col-12 flex-md-column-reverse flex-column d-flex justify-content-around">
                 <article class="languages__info bubble-cont text-center">
@@ -105,8 +95,8 @@ $my_projects = json_decode($response,true);
         </section>
         <section class="projects container" id = "projects">
             <p class="title text-center">Some of my Projects</p>
-            <div id="carouselProjects" class="carousel carousel-fade slide mx-auto" data-bs-ride="carousel">
-                <div class="carousel-indicators">
+            <div id="carouselProjects" class="carousel slide mx-auto" data-bs-ride="carousel">
+                <div class="carousel-indicators mt-4 pt-4">
                     <!--first element will be active !-->
                     <button type="button" data-bs-target="#carouselProjects" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 0"></button>
                 <?php for($i = 1; $i < count($my_projects);$i++): ?>
@@ -118,11 +108,14 @@ $my_projects = json_decode($response,true);
                     $active = 1; 
                     foreach($my_projects as $project): ?>
                     <div class="carousel-item <?php if(1 == $active++) print('active'); ?>">
-                        <h1><?= $project['description'] ?></h1>
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5><?= $project['name'] ?></h5>
-                            <p><?= $project['description'] ?></p>
+                        <div class="carousel-item__project d-flex flex-column justify-content-center align-items-center text-center">
+
+                            <h3 class = "text-capitalize"><?= $project['name'] ?></h3>
+                            <a href="<?= $project['url']?>" class = "carousel-item__button">See the code!</a>
+                            <p>Language: <?= $project['language'] ?></p>
+                            <p>Description: <?= $project['description'] ?></p>
                         </div>
+
                     </div>
                 <?php endforeach ?>
                 </div>
