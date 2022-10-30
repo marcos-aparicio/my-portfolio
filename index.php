@@ -30,10 +30,10 @@ $my_projects = $conn->query('SELECT * FROM github_projects')->fetchAll();
         <nav class="navbar navbar-expand-lg navbar-dark justify-content-between px-5 py-3">
             <span class="col-2 logo">&lt;/&gt;</span>
             <div class = "d-flex flex-column">
-                <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse " id="navbarTogglerDemo03">
+                <div class="collapse navbar-collapse " id="navbarToggler">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
                             <a class="nav-link" aria-current="page" href="#about">About me</a>
@@ -77,12 +77,12 @@ $my_projects = $conn->query('SELECT * FROM github_projects')->fetchAll();
                 </div>
                 <p class ="about-me__info">I'm passionate about coding. Always looking for the opportunity to learn something more whether is a new programming language, framework or anything that relates to computer science! Been exploring tiling window managers and Vim recently.</p>
             </article>
-            <div class="languages col-md-6 col-12 flex-md-column-reverse flex-column d-flex justify-content-around">
+            <div class="languages col-md-6 col-12 flex-md-column-reverse flex-column d-flex justify-content-evenly">
                 <article class="languages__info bubble-cont text-center">
                     <img src="./images/bubble2.png" alt="Bubble for Decoration" class = "bubble d-sm-block d-md-block d-lg-block d-xl-block d-xxl-block">
-                    <p class="title text-center" id = "languages">Skills</p>
+                    <p class="title text-center">Skills</p>
                 </article>
-                <div class="languages__skills ">
+                <div class="languages__skills" id="languages">
                     <a data-bs-toggle="tooltip" data-bs-title="Javascript, 1st language I learned" ><i class="fa-brands fa-square-js" style="color:#f7e018"></i></a>
                     <a data-bs-toggle="tooltip" data-bs-title="HTML, the structure for websites"><i class="fa-brands fa-html5" style="color:#ff5722"></i></a> 
                     <a data-bs-toggle="tooltip" data-bs-title="CSS, the styles for websites"><i class="fa-brands fa-css3-alt" style="color:#214ce5"></i></a>

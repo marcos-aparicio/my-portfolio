@@ -14,6 +14,11 @@ a{
     text-decoration:none;
 }
 
+footer{
+    overflow:hidden;
+    background-color: #3C78EE;
+}
+
 /* Header Styles */
 header{
     position:relative;
@@ -25,6 +30,7 @@ header{
     background-color:#3C78EE;
 }
 
+/* "Resetting" bootstrap styles */
 .nav-item{
     margin-right:1em;
     margin-left:1em;
@@ -40,16 +46,19 @@ header{
 
 /* Styles for the Wave Shapes on the webpage */
 .wave1 {
-    background-color: white;
     position: absolute;
     left: 0;
     width: 100%;
     overflow: hidden;
+    
     line-height: 0;
+
+    background-color: white;
 }
 .wave2 {
     position: relative;
     padding-bottom:30px;
+    padding-bottom:clamp(5px,2vw,30px);
     width: 100%;
 
     background-color: #3C78EE ;
@@ -101,18 +110,18 @@ a:hover>.social-media__icon{
 }
 /* About Me Section */
 .about{
+    margin:200px 0;
+    min-height:90vh;
+
     z-index:30;
-    min-height:100vh;
-    margin:0;
-    margin-top:200px;
 }
 /* Configuring titles */
 .about .title{
     font-size:5.6rem;
     color:white;
     text-transform:uppercase;
-    z-index:12;
 
+    z-index:12;
 }
 /* To separate the about me title from the paragraph */
 .about p:not(.title){
@@ -122,8 +131,9 @@ a:hover>.social-media__icon{
 /* Styles for the paragraph of about me */
 .about .about-me__info{
     padding:0 45px;
-    font-size:2.3rem;
     margin-top:150px;
+
+    font-size:2.3rem;
 }
 
 /* Bubbles Styles */
@@ -146,21 +156,24 @@ a:hover>.social-media__icon{
 /* Languages Section within About Section */
 
 .languages__info p{
-    transform:translateY(-40px);
     position:relative; /*Positions will be used accros all the styles so the bubbles look nice on the webpage*/
-    color:white;
     margin-top:20px;
+
+    color:white;
+
+    transform:translateY(-40px);
 }
 .languages__skills{
    display:grid;
-   grid-template-columns:repeat(3,12rem);
-   grid-template-rows:repeat(3,12rem);
+   grid-template-columns:repeat(3,clamp(6rem,6vw,12rem));
+   grid-template-rows:repeat(3,clamp(6rem,6vw,12rem));
    grid-gap:35px;
+   grid-gap:clamp(10px,1vw,35px);
    justify-content: center;
    justify-items:center; 
 
-   margin:15px;
    font-size:12rem; 
+   font-size:clamp(6rem,6vw,12rem); 
 }
 
 .carousel-item__project{
@@ -188,10 +201,12 @@ a:hover>.social-media__icon{
     font-family: 'Fredoka', sans-serif;
 }
 .carousel-item__project a{
-    font-size:2.05rem;
-    color:white;
     padding:5px 10px;
     margin:15px 0;
+    
+    font-size:2.05rem;
+    color:white;
+
     border-radius: 5px;
 }  
 
@@ -199,27 +214,19 @@ a:hover>.social-media__icon{
 /* Projects Section */
 .projects{
     padding:0 50px;
+    padding-bottom:100px;
     margin-top:100px;
 }
 /* Customizing the titles of the project section */
 .projects .title{
     padding-top:25px;
-    font-size:7.5rem;
-    text-transform: uppercase;
     padding-bottom:35px;
+    padding-bottom:clamp(5px,2vw,35px);
+
+    font-size:clamp(4.4rem,5vw,7.2rem);
+    text-transform: uppercase;
     color:#3C78EE;
 }
-
-/* Editing some Bootstrap properties so they will fit better on my webpage */
-.projects #carouselProjects .carousel-control-prev-icon,.projects #carouselProjects .carousel-control-next-icon{
-    filter: invert(49%) sepia(64%) saturate(4166%) hue-rotate(205deg) brightness(93%) contrast(101%); /*For this property I used a filter convertor so the image could turn the color I want, here's the link: https://codepen.io/sosuke/pen/Pjoqqp */
-    transform:scale(3);
-}
-.projects #carouselProjects .carousel-indicators button{
-    background-color: rgb(60, 120, 238);
-    padding:2px;
-}
-
 
 
 /* Large Breakpoint Styles */
@@ -249,9 +256,6 @@ a:hover>.social-media__icon{
     .projects{
         padding:0 50px;
     }
-    .projects .title{
-        font-size:7rem;
-    }
 }
 @media screen and (max-width:768px){
     .about .about-me .info{
@@ -260,7 +264,6 @@ a:hover>.social-media__icon{
     }
     .about .title{
         font-size:4.8rem;
-        color:black;
     }
     .bubble1,.bubble2{
         width:300px;
@@ -294,9 +297,6 @@ a:hover>.social-media__icon{
     }
     .projects{
         padding:0 20px;
-    }
-    .projects .title{
-        font-size:4.8rem;
     }
     .contact .title{
         font-size:4.8rem;
