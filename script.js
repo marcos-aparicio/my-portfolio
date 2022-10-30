@@ -13,8 +13,8 @@ const resizeWebSections = ()=>{
     let firstSectionHeight = window.innerHeight - header.clientHeight;
     firstSection.style.height = `${firstSectionHeight}px`
 
-    let lastSectionHeight = window.innerHeight - footer.clientHeight;
-    lastSection.style.height =  `${lastSectionHeight}px`;
+    let footerHeight = window.innerHeight - lastSection.clientHeight;
+    footer.style.height =  `${footerHeight}px`;
 };
 
 
