@@ -1,5 +1,7 @@
 <?php 
 require("db.php");
+require("env.php");
+
 //connecting to github api
 $github_url = "https://api.github.com/users/marcos-aparicio/repos";
 $req = curl_init($github_url);
@@ -10,7 +12,7 @@ curl_setopt($req, CURLOPT_RETURNTRANSFER,true);
 $headers = array(
     "User-Agent: marcos-aparicio",
     "Accept: application/vnd.github+json",
-    "Authentication: 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"
+    "Authentication: ".$_ENV['TOKEN']
 );
 curl_setopt($req, CURLOPT_HTTPHEADER,$headers);
 

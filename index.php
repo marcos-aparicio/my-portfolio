@@ -1,7 +1,6 @@
 <?php 
 
 require("db.php");
-
 $my_projects = $conn->query('SELECT * FROM github_projects')->fetchAll();
 
 ?>
@@ -77,12 +76,12 @@ $my_projects = $conn->query('SELECT * FROM github_projects')->fetchAll();
                 </div>
                 <p class ="about-me__info">I'm passionate about coding. Always looking for the opportunity to learn something more whether is a new programming language, framework or anything that relates to computer science! Been exploring tiling window managers and Vim recently.</p>
             </article>
-            <div class="languages col-md-6 col-12 flex-md-column-reverse flex-column d-flex justify-content-evenly">
+            <div class="languages col-md-6 col-12 flex-md-column-reverse flex-column d-flex justify-content-evenly" id="languages">
                 <article class="languages__info bubble-cont text-center">
                     <img src="./images/bubble2.png" alt="Bubble for Decoration" class = "bubble d-sm-block d-md-block d-lg-block d-xl-block d-xxl-block">
                     <p class="title text-center">Skills</p>
                 </article>
-                <div class="languages__skills" id="languages">
+                <div class="languages__skills" >
                     <a data-bs-toggle="tooltip" data-bs-title="Javascript, 1st language I learned" ><i class="fa-brands fa-square-js" style="color:#f7e018"></i></a>
                     <a data-bs-toggle="tooltip" data-bs-title="HTML, the structure for websites"><i class="fa-brands fa-html5" style="color:#ff5722"></i></a> 
                     <a data-bs-toggle="tooltip" data-bs-title="CSS, the styles for websites"><i class="fa-brands fa-css3-alt" style="color:#214ce5"></i></a>
@@ -95,12 +94,12 @@ $my_projects = $conn->query('SELECT * FROM github_projects')->fetchAll();
         </section>
         <section class="projects container" id = "projects">
             <p class="title text-center">Some of my Projects</p>
-            <div id="carouselProjects" class="carousel slide mx-auto" data-bs-ride="carousel">
+            <div id="carouselProjects" class="carousel carousel-dark slide mx-auto" data-bs-ride="carousel">
                 <div class="carousel-indicators mt-4 pt-4">
                     <!--first element will be active !-->
                     <button type="button" data-bs-target="#carouselProjects" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 0"></button>
                 <?php for($i = 1; $i < count($my_projects);$i++): ?>
-                    <button type="button" data-bs-target="#carouselProjects" data-bs-slide-to="<?=$i?>" aria-current="true" aria-label="Slide <?=$i+1?>"></button>
+                    <button type="button" data-bs-target="#carouselProjects" data-bs-slide-to="<?=$i?>" aria-label="Slide <?=$i+1?>"></button>
                 <?php endfor ?>
                 </div>
                 <div class="carousel-inner">

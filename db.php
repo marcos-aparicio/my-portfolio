@@ -1,16 +1,12 @@
 <?php
-
-$host = "localhost";
-$database = "portfolio";
-$user = "root";
-$password = "";
+require('env.php');
+$host = $_ENV['HOST'];
+$database = $_ENV['DATABASE'];
+$user = $_ENV['USER'];
+$password = $_ENV['PASSWORD'];
 
 try {
   $conn = new PDO("mysql:host=$host;dbname=$database", $user, $password);
-  // foreach ($conn->query("SHOW DATABASES") as $row) {
-  //   print_r($row);
-  // }
-  // die();
 } catch (PDOException $e) {
   die("PDO Connection Error: " . $e->getMessage());
 }

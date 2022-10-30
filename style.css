@@ -111,7 +111,7 @@ a:hover>.social-media__icon{
 /* About Me Section */
 .about{
     margin:200px 0;
-    min-height:90vh;
+    min-height:85vh;
 
     z-index:30;
 }
@@ -183,7 +183,7 @@ a:hover>.social-media__icon{
 
     margin:30px auto;
     margin-bottom: 10px;
-    padding:20px;
+    padding:25px;
 
     overflow:visible;
     box-shadow: 3px 4px 15px -6px rgba(0,0,0,0.75);
