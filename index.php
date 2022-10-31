@@ -110,7 +110,7 @@ $my_projects = $conn->query('SELECT * FROM github_projects')->fetchAll();
                         <div class="carousel-item__project d-flex flex-column justify-content-center align-items-center text-center">
 
                             <h3 class = "text-capitalize"><?= $project['name'] ?></h3>
-                            <a href="<?= $project['url']?>" class = "btn btn-primary">See the code!</a>
+                            <a href="<?= $project['repo_url']?>" class = "btn btn-primary">See the code!</a>
                             <?php if($project['deploy_url'] != ""): ?>
                                 <a href="<?=$project['deploy_url']?>" class = "btn btn-success">See project!</a>
                             <?php endif ?>
