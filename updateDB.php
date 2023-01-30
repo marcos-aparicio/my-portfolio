@@ -16,7 +16,8 @@ $headers = array(
 );
 curl_setopt($req, CURLOPT_HTTPHEADER,$headers);
 
-$cleaning = $conn->prepare("DELETE * FROM github_projects");
+$cleaning = $conn->prepare("DELETE FROM github_projects");
+$cleaning->execute();
 $response = curl_exec($req);
 $my_projects = json_decode($response,true);
 var_dump($my_projects);
