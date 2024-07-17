@@ -1,3 +1,4 @@
+-- replace your database name here
 DROP DATABASE IF EXISTS portfolio;
 CREATE DATABASE portfolio;
 USE portfolio;
